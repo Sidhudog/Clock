@@ -1,2 +1,2 @@
 # Clock
-A Javascript Clock with ergonomic design
+A Javascript Clock with neumorphic design
