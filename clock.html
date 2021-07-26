@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right ,rgb(173, 247, 229),rgb(217, 236, 241));
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .neomorphic{
+            box-shadow: -5px -3px 7px #ffffffb2, 
+            3px 3px 5px rgba(40, 72, 126, 0.945),
+            inset 3px 3px 5px rgba(40, 72, 126, 0.945),
+            inset -3px -3px 7px #ffffffb2;
+                        
+        }
+        .clock{
+        width: 400px;
+        height: 400px;
+        background-color: rgb(134, 255, 233);
+        border: 2px solid rgb(152, 224, 240) ;
+        border-radius: 50%;
+        /* box-shadow: 5px 5px rgb(197, 249, 238),-5px -5px rgb(152, 224, 240)  */
+        position: relative;
+        }
+        .number{
+            --rotation:0deg;
+            position: absolute;
+            width: 100%;
+            height:100%;
+            text-align: center;
+            transform: rotate(var(--rotation));
+        }
+        .number1{--rotation : 30deg; font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number2{--rotation : 60deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number3{--rotation : 90deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number4{--rotation : 120deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number5{--rotation : 150deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number6{--rotation : 180deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number7{--rotation : 210deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number8{--rotation : 240deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number9{--rotation : 270deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number10{--rotation : 300deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number11{--rotation : 330deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+        .number12{--rotation : 0deg;font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+
+        .hand{
+            position: absolute;
+            bottom: 50%;
+            transform-origin: bottom;
+            transform: rotate(calc(var(--rotation)*1deg));
+            border-radius: 10px;
+        }
+        #hours{
+            --rotation:0deg;
+            width: 10px;
+            height: 30%;
+            background-color: black;
+            left: 49%;
+        }
+        #minutes{
+            --rotation:0deg;
+            width: 5px;
+            height: 35%;
+            left: 49.5%;
+            background-color: black;
+        }
+        #seconds{
+            --rotation:0deg;
+            width: 3px;
+            height: 40%;
+            left: 49.7%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock neomorphic">
+        <div class="hand" id="hours"></div>
+        <div class="hand" id="minutes"></div>
+        <div class="hand " id="seconds"></div>
+        <div class="number number1">1</div>
+        <div class="number number2">2</div>
+        <div class="number number3">3</div>
+        <div class="number number4">4</div>
+        <div class="number number5">5</div>
+        <div class="number number6">6</div>
+        <div class="number number7">7</div>
+        <div class="number number8">8</div>
+        <div class="number number9">9</div>
+        <div class="number number10">10</div>
+        <div class="number number11">11</div>
+        <div class="number number12">12</div>
+    </div>
+</body>
+<script>
+
+window.onload = time;
+setInterval(time,1000);
+function time()
+{
+    d = new Date();
+    seconds = d.getSeconds()/60
+    minutes = (seconds + d.getMinutes())/60
+    hours = (minutes + d.getHours())/12
+    
+     document.getElementById('seconds').style.setProperty('--rotation', (seconds * 360));
+     document.getElementById('minutes').style.setProperty('--rotation', (minutes * 360));
+    document.getElementById('hours').style.setProperty('--rotation', (hours * 360));
+   
+}    
+ 
+</script>
+</html>
